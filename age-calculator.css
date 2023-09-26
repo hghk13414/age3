@@ -1,0 +1,205 @@
+body{
+    background-color:  hsl(0, 0%, 86%)    ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    
+}
+/*المربع الخارجي*/
+div{position: relative;
+    width:750px;
+    height: 450px;
+    border: solid 1px white;
+    background-color: white;
+    border-radius: 20px;
+border-bottom-right-radius: 150px;
+}
+/* الكلام باللون الرمادي فوق مربعات الدخل*/
+k{
+    font-family: 'Poppins', sans-seri;
+    position: absolute;
+    font-size: 13px;
+    color: hsl(0, 1%, 44%); 
+}
+/*مربعات الدخل*/
+input{
+   
+    font-family: 'Poppins', sans-seri;
+    position: absolute;
+    width:140px;
+    height: 60px;
+    border: solid 1px hsl(0, 0%, 86%);
+    border-radius: 10px;
+    background-color:white ;
+    color:hsl(0, 0%, 8%) ;
+    font-size: 20px;
+    padding-left: 20px;
+    margin-top: 67px;
+    outline: none;
+}
+/*كتابة اليوم */
+#day1{
+margin-left: 50px;
+top: 40px;
+}
+/*كتابة الشهر*/
+#month1{
+    margin-left: 220px;
+    top: 40px;
+}
+/*كتابة السنة*/
+#year1{
+    margin-left:390px ;
+ top: 40px;
+}
+/*مربع ادخال اليوم*/
+#day2{
+    margin-left: 50px;
+   
+    }
+    /*مربع ادخال الشهر*/
+    #month2{
+        margin-left: 220px;
+
+    }
+    /*مربع ادخال السنة*/
+    #year2{
+        margin-left:390px ;
+        
+    }
+    /*الخط الرمادي اسفل مربعات الدخل*/
+    #line{
+        z-index: 2;
+        width: 600px;
+        height: 1px;
+        position: absolute;
+        background-color: hsl(0, 0%, 86%);
+        margin-left: 52px;
+        top:170px;
+    }
+    /*الزر البنفسجي*/
+    #arrow{
+        position: absolute;
+        z-index: 5;
+        width: 70px;
+        height: 70px;
+        border-radius: 50px;
+        background-color: hsl(259, 100%, 65%);
+        border: solid 1px hsl(259, 100%, 65%);
+        margin-left: 580px;
+        top:130px ;
+    }
+    #zero{
+        visibility: hidden;
+    }
+    /*الخطين البنفسجيين بكل سطر*/
+    uu{ 
+        position: absolute;
+        font-size: 70px; 
+        font-family: 'Poppins', sans-seri;
+        color:hsl(259, 100%, 65%);
+        left: 60px;
+    }
+    /*تمركز سطر السنة تحت*/
+    #year3,#year4{
+        top:180px ;
+    }
+    /*تمركز سطر الشهر تحت*/
+    #month3,#month4{
+        top:250px;
+    }
+    /*تمركز سطر اليوم تحت*/
+    #day3,#day4{
+        top:320px;
+    }
+    /*الكتابة السوداء تحت*/
+    ww{
+        position: absolute;
+        font-size: 70px; 
+        font-family: 'Poppins', sans-seri;
+        margin-left: 170px;
+        color:  hsl(0, 0%, 8%);
+    }
+    /*الكتابة الحمراء عند وجود خطأ دخل*/
+    o{
+        font-size: 14px;
+        color: hsl(0, 100%, 67%);
+        position: absolute;
+        top:135px;
+    }
+    /*خطأ دخل اليوم*/
+    #day5{
+        margin-left: 55px;
+    }
+    /*خطأ دخل الشهر*/
+    #month5{
+        margin-left: 225px;
+    }
+    /*خطأ دخل السنة*/
+    #year5{
+        margin-left: 395px;
+    }
+    @media only screen and (max-width:450px){
+        div{
+            width:320px;
+            height: 600px;
+        }
+        k{
+            font-size: 12px;
+        }
+        input{
+            width:77px;
+            height: 50px;
+            padding-left: 15px;
+            font-size: 14px;
+        }
+        #day1,#day2,#day5{
+            margin-left: 20px;
+
+        }
+        #month1,#month2,#month5{
+            margin-left: 120px;
+        }
+        #year1,#year2,#year5{
+            margin-left: 220px;
+        }
+        #line{
+            width:282px;
+            top:200px;
+            margin-left: 17px;
+        }
+        #arrow{
+            width:60px;
+            height: 60px;
+            top:165px;
+            margin-left: 130px;
+        }
+        #photo1{
+            width:30px;
+            height: 35px;
+        }
+        uu{ left: 24px;
+            font-size: 50px;
+        }
+        ww{margin-left: 94px;
+            font-size: 50px;
+        }
+        #year3,#year4{
+         top:260px;
+        }
+        #month3,#month4{
+            top:340px;
+        }
+        #day3,#day4{
+            top:420px;
+        }
+        #o{
+            top:120px;
+        }
+      #day5,#month5,#year5{
+        
+        font-size: 8px;
+        top:123px;
+      }
+    }

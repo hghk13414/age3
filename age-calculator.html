@@ -1,0 +1,195 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="age-calculator.css">
+        <title>age-calculator</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,700;9..144,800&family=Montserrat:ital,wght@1,500;1,600&family=Poppins:ital,wght@1,700&family=Roboto:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div>
+            <k id="day1"> DAY</k>
+            <k id="month1">MONTH</k>
+            <k id="year1">YEAR</k>
+            <input type="text" id="day2" placeholder="DD">
+            <input type="text" id="month2" placeholder="MM">
+            <input type="text" id="year2" placeholder="YYYY">
+            <o id="day5"></o>
+            <o id="month5"></o>
+            <o id="year5"></o>
+            <l id="line"></l>
+            <button id="arrow"  onmousemove="f();" onmouseout="ref();" onclick="r();" > <img src="icon-arrow.svg" id="photo1" ></button>
+            <uu id="year3">- -</uu>
+            <uu id="month3">- -</uu>
+            <uu id="day3">- -</uu>
+            <ww id="year4">years</ww>
+            <ww id="month4">months</ww>
+            <ww id="day4">days</ww>
+        </div>
+        <script>
+          /*جعل الزر يضيء بالاسوه*/
+            function f(){
+                document.getElementById("arrow").style.backgroundColor = ' hsl(0, 0%, 8%) ';
+                document.getElementById("arrow").style.borderColor = ' hsl(0, 0%, 8%) ';
+            }
+            /* جعل الزر يود لحالته  */
+            function ref(){
+                document.getElementById("arrow").style.backgroundColor = 'hsl(259, 100%, 65%) ';
+                document.getElementById("arrow").style.borderColor = 'hsl(259, 100%, 65%) ';
+            }
+            /*جعل البوردر احمر*/
+            function redbo(p)
+            { 
+                p.style.borderColor = ' hsl(0, 100%, 67%)';
+            } 
+            /* جعل الكتابة حمراء*/
+            function redst(o){
+              o.style.color = 'hsl(0, 100%, 67%)';
+            }
+            /*اعادة البوردر لحالته */
+            function redhid(p){
+            p.style.borderColor = 'hsl(0, 0%, 86%)';
+            }
+            /*اعادة الكلام لحالته الطبيعية*/
+            function redhidb(o){
+              o.style.color = 'hsl(0, 1%, 44%)';
+            }
+            /*لا يوجد اخطاء ادخال*/
+           function de(){
+            redhid(document.getElementById("day2"));
+          redhidb(document.getElementById("day1"));
+         window.day5.innerHTML = '' ;
+         redhid(document.getElementById("month2"));
+          redhidb(document.getElementById("month1"));
+         window.month5.innerHTML = '' ;
+         redhid(document.getElementById("year2"));
+          redhidb(document.getElementById("year1"));
+         window.year5.innerHTML = '';
+
+           }
+           
+            /*تابع العملية يقوم بالتأكد من عدم وجود اخطاء الادخال ثم ينفذ العملية*/
+            function r(){
+/*
+x: اليوم المدخل
+y:الشهر المدخل
+z:السنة المدخلة
+*/
+          var x=document.getElementById("day2").value;
+          var y=document.getElementById("month2").value;      
+          var z=document.getElementById("year2").value;
+          /*شروط اخطاء لدخل*/
+         if(x=='' | x>31 | x<1 | y=='' | y>12 | y<1 | z=='' | z>2023 | z<1900)
+          {
+          if(x=='') { redbo(document.getElementById("day2"));
+          redst(document.getElementById("day1"));
+          window.day5.innerHTML = 'This filed is required'; 
+   
+         
+        }
+        else if(x>31 | x<1){
+          redbo(document.getElementById("day2"));
+          redst(document.getElementById("day1"));
+         window.day5.innerHTML = 'Must be a vaild day' ;
+       
+        }
+       
+          if(y=='') {
+            redbo(document.getElementById("month2"));
+          redst(document.getElementById("month1"));
+            window.month5.innerHTML = 'This filed is required'  ;
+          }
+
+
+        else if(y>12 | y<1)
+        {
+          redbo(document.getElementById("month2"));
+          redst(document.getElementById("month1"));
+            window.month5.innerHTML = 'Must be a vaild month' ;
+        }
+       
+          if(z=='') { redbo(document.getElementById("year2"));
+          redst(document.getElementById("year1"));
+            window.year5.innerHTML = 'This filed is required';
+          }
+          else if(z>2023 | z<1900)
+          {
+            redbo(document.getElementById("year2"));
+          redst(document.getElementById("year1"));
+            window.year5.innerHTML = 'Must be a vaild year';
+          }
+        
+          }
+else{
+  de();
+  if(x==31) x=30;
+  /*
+  a:اليوم الحالي
+  b:الشهر الحالي
+  c:السنة الحالية
+  */
+          var a= new Date().getDate();
+          var b=new Date().getMonth();
+          var c=new Date().getFullYear();
+          var k,l,m;
+          b=b+1;
+          k=a-x;
+          l=b-y;
+          m=c-z;
+          if(k>=0 & l<0 ){
+          l=12-(y-b);
+          m=m-1;}
+          else if(k<0 & l>0){
+            k=30-(x-a);
+            l=l-1;
+          }
+          else if(k<0 & l<0){
+            k=30-(x-a);
+            l=11-(y-b);
+            m=m-1;
+          }
+          else if(k<0 & l==0){
+            k=30-(x-a)
+            l=12;
+            m=m-1;
+          }
+          /*اضافة صفر في حال كان العدد من خانة واحدة*/
+         if(k<10 ) k='0'+k;
+         else{ 
+            x=day3.offsetLeft; 
+         if(x>=60) p(document.getElementById('day3'));
+         else q(document.getElementById('day3'));
+          }
+
+         if(l<10 ) l='0'+l;
+         else{ 
+            x=month3.offsetLeft; 
+         if(x>=60) p(document.getElementById('month3'));
+         else q(document.getElementById('month3'));
+          }
+
+         if(m<10) m='0'+m;
+          else{ 
+            x=year3.offsetLeft; 
+         if(x>=60) p(document.getElementById('year3'));
+         else q(document.getElementById('year3'));
+          }
+          window.day3.innerHTML = k;
+          window.month3.innerHTML = l;
+          window.year3.innerHTML = m;
+        }
+        /*توابع الازاحة في حال كان العدد من خانة واحدة*/
+        function p(x){
+          x.style.marginLeft = '12px';
+        }
+        function q(x){
+          x.style.marginLeft = '10px';
+        }
+   
+      }
+    
+        </script>
+    </body>
+</html>
